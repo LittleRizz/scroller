@@ -1,4 +1,1 @@
-It's time for some PORKCHOP SANDWICHES!!!
-
-
-Get the eff out.
+This is the inital test project for phaser, will be moving onto overhead shooter in a little bit.
