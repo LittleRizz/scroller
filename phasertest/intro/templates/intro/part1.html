@@ -4,7 +4,7 @@
 <head> 
 	<meta charset="UTF-8" />
 	<title>Phaser - Making your first game, part 1</title>
-	<script type="text/javascript" src="{% static "js/phaser.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "intro/js/phaser.min.js" %}"></script>
     <style type="text/css">
         body {
             margin: 0;
@@ -18,9 +18,25 @@
 var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 
 function preload() {
+	game.load.image('sky', '{% static "intro/assets/sky.png" %}');
+	game.load.image('ground', '{% static "intro/assets/platform.png" %}');
+	game.load.image('star', '{% static "intro/assets/star.png" %}');
+	game.load.image('dude', '{% static "intro/assets/dude.png" %}', 32, 48);
+
 }
+ var platforms;
 
 function create() {
+	//this starts up our physics engine
+	game.physics.startSystem(Phaser.Physics.ARCADE);
+	//backgroud! goes here
+	game.add.sprite(0,0, 'sky');
+	game.add.sprite(4,4, 'star');
+
+	//creating a group for platforms, and apply physics to them
+	platforms = game.add.group();
+	platforms.enableBody = true;
+
 }
 
 function update() {
